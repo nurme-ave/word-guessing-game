@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Castoro', serif;
+}
+
+/* Home - Intro Page */
+.home-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.background-image {
+  background-image: url('images/sun-smiling-house.png');
+  background-size: cover;
+}
+
+.home-intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+.home-greeting {
+  color: navy;
+  font-size: 35px;
+  letter-spacing: 3px;
+}
+
+.home-play-button {
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 200px;
+  padding: 5px;
+  margin: 10px;
+  text-align: center;
+  letter-spacing: 1px;
+  border-radius: 5px;
+}
+
+.home-play-button a {
+  color: navy;
+  text-decoration: none;
+}
