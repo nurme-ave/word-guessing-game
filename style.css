@@ -17,6 +17,7 @@
 .background-image {
   background-image: url('images/sun-smiling-house.png');
   background-size: cover;
+  position: fixed;
 }
 
 .list-items-alphabet {
