@@ -1,5 +1,5 @@
 /* Grab elements */
-const listItems = document.querySelector('.list-items-alphabet');
+const listItems = document.querySelector('.list-items');
 // const pickCategoryAnimals = document.querySelector('.category-item-animals');
 // const pickCategoryBirds = document.querySelector('.category-item-birds');
 // const pickCategoryColors = document.querySelector('.category-item-colors');
