@@ -71,6 +71,7 @@
 
 .instructions-text {
   color: var(--headings-color);
+  margin-bottom: 15px;
 }
 
 .pick-category li, .new-game-btn {
