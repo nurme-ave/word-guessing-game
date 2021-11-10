@@ -1,19 +1,21 @@
 /* Grab elements */
+const intro = document.querySelector('.intro')
+const playButton = document.querySelector('.play-button');
+const categories = document.querySelector('.categories');
+const alphabetList = document.querySelector('.alphabet-list');
 const listItems = document.querySelector('.list-items');
-// const pickCategoryAnimals = document.querySelector('.category-item-animals');
-// const pickCategoryBirds = document.querySelector('.category-item-birds');
-// const pickCategoryColors = document.querySelector('.category-item-colors');
-// const pickCategoryFruits = document.querySelector('.category-item-fruits');
-// const pickCategoryCountries = document.querySelector('.category-item-countries');
-// const pickCategoryTrees = document.querySelector('.category-item-trees');
-// const pickCategoryTech = document.querySelector('.category-item-tech');
-// const pickCategoryWater = document.querySelector('.category-item-water');
-// const textPanel = document.querySelector('.text-panel');
+const pickCategoryAnimals = document.querySelector('.category-item-animals');
+const pickCategoryBirds = document.querySelector('.category-item-birds');
+const pickCategoryColors = document.querySelector('.category-item-colors');
+const pickCategoryFruits = document.querySelector('.category-item-fruits');
+const pickCategoryCountries = document.querySelector('.category-item-countries');
+const pickCategoryTrees = document.querySelector('.category-item-trees');
+const pickCategoryTech = document.querySelector('.category-item-tech');
+const newGame = document.querySelector('.new-game');
+const textPanel = document.querySelector('.text-panel');
 // const currentCategory = document.querySelector('.current-category');
 // const wordToGuess = document.querySelector('.word-to-guess');
 // const youWin = document.querySelector('.you-win');
-// const categories = document.querySelector('.categories');
-// const newGame = document.querySelector('.new-game');
 
 
 /* Declare variables */
@@ -21,18 +23,17 @@ let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
-// let animals = [
-// 'karu', 'jänes', 'rebane', 'hunt', 'elevant', 'panda', 'tiiger', 'lõvi', 'krokodill', 'siil', 
-// 'kass', 'koer', 'hamster', 'hiir', 'dinosaurus', 'sebra', 'jääkaru', 'orav', 'põder', 'hirv', 'kits', 'ilves', 'siga'];
-// let fruits = ['apelsin', 'pirn', 'õun', 'mandariin', 'mango', 'õun', 'sidrun', 'ploom', 'arbuus', 
-// 'melon', 'greip', 'aprikoos', 'nektariin', 'virsik'];
-// let colors = ['punane', 'sinine', 'roheline', 'kollane', 'valge', 'must', 'oranž', 'pruun', 'roosa', 'hall'];
-// let birds = ['tihane', 'varblane', 'pääsuke', 'kägu', 'tuvi', 'vares', 'luik', 'part', 'kotkas', 'hani', 'toonekurg', 'flamingo', 'rähn'];
-// let countries = ['Eesti', 'Ameerika', 'Taani', 'Soome', 'Inglismaa', 'Rootsi', 'Poola', 'Holland', 'Portugal', 'Norra', 'Austria', 'Läti', 'Leedu', 'Belgia'];
-// let trees = ['vaher', 'kuusk', 'kask', 'mänd', 'saar', 'lepp', 'pihlakas', 'sirel'];
-// let tech = ['televiisor', 'pesumasin', 'nõudepesumasin', 'mobiiltelefon', 'külmkapp', 'ahi', 'pliit', 'kuivati', 
-// 'kohvimasin', 'tolmuimeja', 'arvuti', 'printer', 'triikraud', 'röster'];
-// let water = ['ookean', 'järv', 'meri', 'jõgi', 'allikas', 'lomp', 'tiik'];
+let animals = [
+'karu', 'jänes', 'rebane', 'hunt', 'elevant', 'panda', 'tiiger', 'lõvi', 'krokodill', 'siil', 
+'kass', 'koer', 'hamster', 'hiir', 'dinosaurus', 'sebra', 'jääkaru', 'orav', 'põder', 'hirv', 'kits', 'ilves', 'siga'];
+let fruits = ['apelsin', 'pirn', 'õun', 'mandariin', 'mango', 'õun', 'sidrun', 'ploom', 'arbuus', 
+'melon', 'greip', 'aprikoos', 'nektariin', 'virsik'];
+let colors = ['punane', 'sinine', 'roheline', 'kollane', 'valge', 'must', 'oranž', 'pruun', 'roosa', 'hall'];
+let birds = ['tihane', 'varblane', 'pääsuke', 'kägu', 'tuvi', 'vares', 'luik', 'part', 'kotkas', 'hani', 'toonekurg', 'flamingo', 'rähn'];
+let countries = ['Eesti', 'Ameerika', 'Taani', 'Soome', 'Inglismaa', 'Rootsi', 'Poola', 'Holland', 'Portugal', 'Norra', 'Austria', 'Läti', 'Leedu', 'Belgia'];
+let trees = ['vaher', 'kuusk', 'kask', 'mänd', 'saar', 'lepp', 'pihlakas', 'sirel'];
+let tech = ['televiisor', 'pesumasin', 'nõudepesumasin', 'mobiiltelefon', 'külmkapp', 'ahi', 'pliit', 'kuivati', 
+'kohvimasin', 'tolmuimeja', 'arvuti', 'printer', 'triikraud', 'röster'];
 
 // let rightGuesses = [];
 // let replaceRandomWord;
@@ -51,58 +52,65 @@ alphabet.forEach((item) => {
 });
 
 
-// /* Event listeners */
-// [pickCategoryAnimals, pickCategoryBirds, pickCategoryColors, pickCategoryFruits, pickCategoryCountries, pickCategoryTrees, pickCategoryTech, pickCategoryWater]
-// .forEach(item => {
-//   item.addEventListener('click', getCategory);
-// });
+/* Event listeners */
+playButton.addEventListener('click', () => {
+  intro.style.display = 'none';
+  categories.style.display = 'flex';
+});
+
+[pickCategoryAnimals, pickCategoryBirds, pickCategoryColors, pickCategoryFruits, pickCategoryCountries, pickCategoryTrees, pickCategoryTech]
+.forEach(item => {
+  item.addEventListener('click', getCategory);
+});
 
 // listItems.addEventListener('click', getLetter);
 // newGame.addEventListener('click', clearAll);
 
 
-// /* Play the game */
-// function getCategory(id) {
-//   categories.style.display = 'none';
-//   newGame.style.display = 'flex';
-//   textPanel.style.display = 'flex';
+/* Play the game */
+function getCategory(id) {
+  categories.style.display = 'none';
+  alphabetList.style.display = 'flex';
+  newGame.style.display = 'flex';
+  textPanel.style.display = 'flex';
  
-//   id = this.id;
+  id = this.id;
 
-//   switch (id) {
-//     case 'animals-category':
-//       category = animals;
-//       theme = 'Loomad';
-//       break;
-//     case 'birds-category':
-//       category = birds;
-//       theme = 'Linnud';
-//       break;
-//     case 'colors-category':
-//       category = colors;
-//       theme = 'Värvid';
-//       break;
-//     case 'fruits-category':
-//       category = fruits;
-//       theme = 'Puuviljad';
-//       break;
-//     case 'countries-category':
-//       category = countries;
-//       theme = 'Riigid';
-//       break;
-//     case 'trees-category':
-//       category = trees;
-//       theme = 'Puud';
-//       break;
-//     case 'tech-category':
-//       category = tech;
-//       theme = 'Kodumasinad';
-//       break;
-//     case 'water-category':
-//       category = water;
-//       theme = 'Veekogud';
-//       break;
-//   }
+  switch (id) {
+    case 'animals-category':
+      category = animals;
+      theme = 'Loomad';
+      break;
+    case 'birds-category':
+      category = birds;
+      theme = 'Linnud';
+      break;
+    case 'colors-category':
+      category = colors;
+      theme = 'Värvid';
+      break;
+    case 'fruits-category':
+      category = fruits;
+      theme = 'Puuviljad';
+      break;
+    case 'countries-category':
+      category = countries;
+      theme = 'Riigid';
+      break;
+    case 'trees-category':
+      category = trees;
+      theme = 'Puud';
+      break;
+    case 'tech-category':
+      category = tech;
+      theme = 'Kodumasinad';
+      break;
+    case 'water-category':
+      category = water;
+      theme = 'Veekogud';
+      break;
+  }
+}
   
 //   randomWord = category[Math.floor(Math.random() * category.length)].toLowerCase();
 //   let getRandomWordLength = randomWord.length;
