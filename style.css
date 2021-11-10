@@ -47,11 +47,11 @@
   letter-spacing: 1px;
   border-radius: 5px;
   cursor: pointer;
-  color: var(--headings-color);
 }
 
 .play-button a {
   text-decoration: none;
+  color: var(--headings-color);
 }
 
 .alphabet-list {
