@@ -11,8 +11,6 @@ window.addEventListener('resize', () => {
 });
 
 /* Grab elements */
-const intro = document.querySelector('.intro')
-const playButton = document.querySelector('.play-button');
 const categories = document.querySelector('.categories');
 const alphabetList = document.querySelector('.alphabet-list');
 const listItems = document.querySelector('.list-items');
@@ -67,11 +65,6 @@ alphabet.forEach((item) => {
 
 
 /* Event listeners */
-playButton.addEventListener('click', () => {
-  intro.style.display = 'none';
-  categories.style.display = 'flex';
-});
-
 [pickCategoryAnimals, pickCategoryBirds, pickCategoryColors, pickCategoryFruits, pickCategoryCountries, pickCategoryTrees, pickCategoryTech]
 .forEach(item => {
   item.addEventListener('click', getCategory);
