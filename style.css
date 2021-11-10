@@ -18,6 +18,8 @@
   background-image: url('images/sun-smiling-house.png');
   background-size: cover;
   position: fixed;
+  width: 100vw;
+  height: 100vh;
 }
 
 .list-items-alphabet {
