@@ -11,11 +11,13 @@ const pickCategoryFruits = document.querySelector('.category-item-fruits');
 const pickCategoryCountries = document.querySelector('.category-item-countries');
 const pickCategoryTrees = document.querySelector('.category-item-trees');
 const pickCategoryTech = document.querySelector('.category-item-tech');
+const gamePage = document.querySelector('.game-page');
 const newGame = document.querySelector('.new-game');
 const textPanel = document.querySelector('.text-panel');
-// const currentCategory = document.querySelector('.current-category');
-// const wordToGuess = document.querySelector('.word-to-guess');
-// const youWin = document.querySelector('.you-win');
+const currentCategory = document.querySelector('.current-category');
+const wordToGuess = document.querySelector('.word-to-guess');
+const youWin = document.querySelector('.you-win');
+const partyEmoticons = document.querySelector('.party-emoticons');
 
 
 /* Declare variables */
@@ -35,7 +37,7 @@ let trees = ['vaher', 'kuusk', 'kask', 'mänd', 'saar', 'lepp', 'pihlakas', 'sir
 let tech = ['televiisor', 'pesumasin', 'nõudepesumasin', 'mobiiltelefon', 'külmkapp', 'ahi', 'pliit', 'kuivati', 
 'kohvimasin', 'tolmuimeja', 'arvuti', 'printer', 'triikraud', 'röster'];
 
-// let rightGuesses = [];
+let rightGuesses = [];
 // let replaceRandomWord;
 // let ind;
 // let randomWord;
@@ -63,114 +65,107 @@ playButton.addEventListener('click', () => {
   item.addEventListener('click', getCategory);
 });
 
-// listItems.addEventListener('click', getLetter);
-// newGame.addEventListener('click', clearAll);
+listItems.addEventListener('click', getLetter);
+newGame.addEventListener('click', clearAll);
 
 
 /* Play the game */
 function getCategory(id) {
   categories.style.display = 'none';
   alphabetList.style.display = 'flex';
-  newGame.style.display = 'flex';
-  textPanel.style.display = 'flex';
+  gamePage.style.display = 'flex';
  
   id = this.id;
 
   switch (id) {
     case 'animals-category':
       category = animals;
-      theme = 'Loomad';
+      theme = 'Animals';
       break;
     case 'birds-category':
       category = birds;
-      theme = 'Linnud';
+      theme = 'Birds';
       break;
     case 'colors-category':
       category = colors;
-      theme = 'Värvid';
+      theme = 'Colors';
       break;
     case 'fruits-category':
       category = fruits;
-      theme = 'Puuviljad';
+      theme = 'Fruits';
       break;
     case 'countries-category':
       category = countries;
-      theme = 'Riigid';
+      theme = 'Countries';
       break;
     case 'trees-category':
       category = trees;
-      theme = 'Puud';
+      theme = 'Trees';
       break;
     case 'tech-category':
       category = tech;
-      theme = 'Kodumasinad';
-      break;
-    case 'water-category':
-      category = water;
-      theme = 'Veekogud';
+      theme = 'Home Appliances';
       break;
   }
-}
+
   
-//   randomWord = category[Math.floor(Math.random() * category.length)].toLowerCase();
-//   let getRandomWordLength = randomWord.length;
-//   replaceRandomWord = '_'.repeat(getRandomWordLength);
-//   splitReplaceRandomWord = replaceRandomWord.split("");
+  randomWord = category[Math.floor(Math.random() * category.length)].toLowerCase();
+  let getRandomWordLength = randomWord.length;
+  replaceRandomWord = '_'.repeat(getRandomWordLength);
+  splitReplaceRandomWord = replaceRandomWord.split("");
 
-//   currentCategory.innerHTML = `
-//   <p class="current-category">
-//     Teema: ${theme}
-//   </p>
-// `;
+  currentCategory.innerHTML = `
+  <p class="current-category">
+    Category: ${theme}
+  </p>
+`;
 
-//   wordToGuess.innerHTML = `
-//     <p class="word-to-guess">
-//       ${replaceRandomWord}
-//     </p>
-//   `;
-// };
+  wordToGuess.innerHTML = `
+    <p class="word-to-guess">
+      ${replaceRandomWord}
+    </p>
+  `;
+};
 
 
-// function getLetter(e) {
-//   if (e.target && e.target.nodeName == "LI") {   // console.log(e.target.nodeName), it will result LI
-//     letter = e.target.id;
-//     ind = randomWord.indexOf(letter);
+function getLetter(e) {
+  if (e.target && e.target.nodeName == "LI") {   // console.log(e.target.nodeName), it will result LI
+    letter = e.target.id;
+    ind = randomWord.indexOf(letter);
  
-//     const getEl = document.getElementById(letter);
-//     getEl.style.visibility = 'hidden';
-//   }
+    const getEl = document.getElementById(letter);
+    getEl.style.visibility = 'hidden';
+  }
 
-//     if (randomWord.includes(letter) && (!rightGuesses.includes(letter))) {
-//       for (let i = 0; i < randomWord.length; i++) {
-//         console.log(randomWord[i]);
-//         if (randomWord[i] === letter) {
-//           rightGuesses.push(letter);
-//           splitReplaceRandomWord.splice(ind, 1, letter); 
-//           splitReplaceRandomWord.splice(randomWord.lastIndexOf(letter), 1, letter); 
-//         }
-//       }
+    if (randomWord.includes(letter) && (!rightGuesses.includes(letter))) {
+      for (let i = 0; i < randomWord.length; i++) {
+        if (randomWord[i] === letter) {
+          rightGuesses.push(letter);
+          splitReplaceRandomWord.splice(ind, 1, letter); 
+          splitReplaceRandomWord.splice(randomWord.lastIndexOf(letter), 1, letter); 
+        }
+      }
       
-//       wordToGuess.innerHTML = `
-//       <p>
-//         ${splitReplaceRandomWord.join(" ")}
-//       </p>
-//       `;
+      wordToGuess.innerHTML = `
+      <p>
+        ${splitReplaceRandomWord.join(" ")}
+      </p>
+      `;
 
-//       sortedRightGuesses = rightGuesses.sort().join("");
-//       let splitRandomWord = randomWord.split("").sort().join("");
+      sortedRightGuesses = rightGuesses.sort().join("");
+      let splitRandomWord = randomWord.split("").sort().join("");
 
-//       if (sortedRightGuesses === splitRandomWord) {
-//         wordToGuess.innerHTML = `
-//           <p class="you-win">
-//             Tubli! Arvasid sõna ära: <span class="word-guessed">${randomWord}</span> 🥳🎉😉
-//           </p>
-//         `
-//       }
-//     } 
-//   };
+      if (sortedRightGuesses === splitRandomWord) {
+        currentCategory.style.display = 'none';
+        youWin.style.display = 'flex';
+        wordToGuess.innerHTML = `<p class="word-guessed">${randomWord}</p>`;
+        partyEmoticons.style.display = 'flex';
+      }
+    } 
+  };
     
 
-// /* Clear everything and start a new game */
-// function clearAll() {
-//   location.reload()
-// };
+/* Clear everything and start a new game */
+function clearAll() {
+  location.reload()
+};

@@ -58,15 +58,22 @@
   display: none;
 }
 
-.categories {
+.categories, .game-page {
   display: none;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 95%;
   height: 95%;
+  margin: 10px;
+  padding: 10px;
   background-color: var(--bkg-color-opacity);
   border-radius: 5px;
+}
+
+.game-page {
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .instructions-text {
@@ -95,6 +102,21 @@
   font-size: 22px;
 }
 
+.text-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 22px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--headings-color);
+}
+
+.word-to-guess {
+  letter-spacing: 5px;
+}
+
 .list-items {
   display: flex;
   justify-content: center;
@@ -121,10 +143,17 @@
   color: darkred;
 }
 
-.new-game {
+.you-win {
   display: none;
+  letter-spacing: 0;
 }
 
-.text-panel {
+.word-guessed {
+  color: red;
+  letter-spacing: 1px;
+}
+
+.party-emoticons {
   display: none;
+  margin-top: 5px;
 }
