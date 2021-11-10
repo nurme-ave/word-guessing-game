@@ -22,16 +22,16 @@
 .intro {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   text-transform: uppercase;
-  margin-bottom: 35px;
 }
 
 .greeting {
-  color: navy;
   letter-spacing: 2px;
+  font-size: 35px;
   text-transform: uppercase;
+  color: navy;
 }
 
 .play-button {
@@ -44,10 +44,11 @@
   padding: 10px;
   margin: 10px;
   text-align: center;
-  color: navy;
   letter-spacing: 1px;
   border-radius: 5px;
   font-size: 30px;
+  cursor: pointer;
+  color: navy;
 }
 
 .alphabet {
@@ -76,6 +77,6 @@
   cursor: pointer;
   text-transform: uppercase;
   font-size: 18px;
-  color: darkred;
   font-weight: bolder;
+  color: darkred;
 }
