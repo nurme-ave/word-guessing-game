@@ -17,18 +17,18 @@
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-}
-
-.background-image {
   background-image: url('images/sun-smiling-house.png');
-  background-size: cover;
+  background-size: cover; 
 }
 
 .intro {
-  margin-bottom: 5vh;
+  margin-bottom: 10vh;
 }
 
 .play-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: var(--bkg-color-opacity);
   width: 250px;
   height: 75px;
