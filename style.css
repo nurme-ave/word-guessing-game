@@ -138,15 +138,15 @@
   justify-content: center;
   align-items: center;
   background-color: pink;
-  width: 35px;
-  height: 35px;
+  width: 45px;
+  height: 45px;
   padding: 5px;
   margin: 5px;
   border: 1px solid darkblue;
   border-radius: 3px;
   cursor: pointer;
   text-transform: uppercase;
-  font-size: 18px;
+  font-size: 25px;
   font-weight: bolder;
   color: darkred;
 }
