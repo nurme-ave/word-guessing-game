@@ -22,11 +22,6 @@
 .background-image {
   background-image: url('images/sun-smiling-house.png');
   background-size: cover;
-  position: fixed;
-}
-
-.intro {
-  margin-bottom: 10vh;
 }
 
 .play-button {
