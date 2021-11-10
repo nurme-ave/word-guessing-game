@@ -60,7 +60,7 @@
 
 .categories {
   display: none;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
   width: 90%;
