@@ -41,17 +41,19 @@ let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
+// polar bear, tv set, washing machine, mobile phone, refrigerator, coffee machine, vacuum cleaner
+
 let animals = [
-'karu', 'jänes', 'rebane', 'hunt', 'elevant', 'panda', 'tiiger', 'lõvi', 'krokodill', 'siil', 
-'kass', 'koer', 'hamster', 'hiir', 'dinosaurus', 'sebra', 'jääkaru', 'orav', 'põder', 'hirv', 'kits', 'ilves', 'siga'];
-let fruits = ['apelsin', 'pirn', 'õun', 'mandariin', 'mango', 'õun', 'sidrun', 'ploom', 'arbuus', 
-'melon', 'greip', 'aprikoos', 'nektariin', 'virsik'];
-let colors = ['punane', 'sinine', 'roheline', 'kollane', 'valge', 'must', 'oranž', 'pruun', 'roosa', 'hall'];
-let birds = ['tihane', 'varblane', 'pääsuke', 'kägu', 'tuvi', 'vares', 'luik', 'part', 'kotkas', 'hani', 'toonekurg', 'flamingo', 'rähn'];
-let countries = ['Eesti', 'Ameerika', 'Taani', 'Soome', 'Inglismaa', 'Rootsi', 'Poola', 'Holland', 'Portugal', 'Norra', 'Austria', 'Läti', 'Leedu', 'Belgia'];
-let trees = ['vaher', 'kuusk', 'kask', 'mänd', 'saar', 'lepp', 'pihlakas', 'sirel'];
-let tech = ['televiisor', 'pesumasin', 'nõudepesumasin', 'mobiiltelefon', 'külmkapp', 'ahi', 'pliit', 'kuivati', 
-'kohvimasin', 'tolmuimeja', 'arvuti', 'printer', 'triikraud', 'röster'];
+'bear', 'rabbit', 'fox', 'wolf', 'elephant', 'panda', 'tiger', 'lion', 'crocodile', 'hedgehog', 
+'cat', 'dog', 'hamster', 'mouse', 'dinosaur', 'zebra', 'squirrel', 'moose', 'deer', 'goat', 'lynx', 'pig'];
+let fruits = ['orange', 'pear', 'apple', 'tangerine', 'mango', 'lemon', 'plum', 'watermelon', 
+'melon', 'grapefruit', 'aprikot', 'nectarine', 'peach'];
+let colors = ['red', 'blue', 'green', 'yellow', 'white', 'black', 'orange', 'brown', 'pink', 'gray'];
+let birds = ['sparrow', 'swallow', 'cuckoo', 'pigeon', 'crow', 'swan', 'duck', 'eagle', 'goose', 'stork', 'flamingo', 'woodpecker'];
+let countries = ['Estonia', 'America', 'Denmark', 'Finland', 'England', 'Sweden', 'Poland', 'Netherlands', 'Portugal', 'Norway', 
+'Austria', 'Latvia', 'Lithuania', 'Belgium'];
+let trees = ['maple', 'spruce', 'birch', 'pine', 'alder', 'rowan', 'lilac'];
+let tech = ['tv', 'dishwasher', 'fridge', 'oven', 'stove', 'dryer', 'computer', 'printer', 'iron', 'toaster'];
 
 let rightGuesses = [];
 // let replaceRandomWord;
