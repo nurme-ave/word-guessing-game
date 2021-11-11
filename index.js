@@ -1,3 +1,8 @@
+/* 
+  Fixing the mobile viewport problem with 'height: 100vh'
+  which does not apply correctly on mobile devices.
+ */
+
 // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
 let vh = window.innerHeight * 0.01;
 // Then we set the value in the --vh custom property to the root of the document
@@ -10,10 +15,9 @@ window.addEventListener('resize', () => {
   document.documentElement.style.setProperty('--vh', `${vh}px`);
 });
 
+
 /* Grab elements */
 const categories = document.querySelector('.categories');
-const alphabetList = document.querySelector('.alphabet-list');
-const listItems = document.querySelector('.list-items');
 const pickCategoryAnimals = document.querySelector('.category-item-animals');
 const pickCategoryBirds = document.querySelector('.category-item-birds');
 const pickCategoryColors = document.querySelector('.category-item-colors');
@@ -21,6 +25,8 @@ const pickCategoryFruits = document.querySelector('.category-item-fruits');
 const pickCategoryCountries = document.querySelector('.category-item-countries');
 const pickCategoryTrees = document.querySelector('.category-item-trees');
 const pickCategoryTech = document.querySelector('.category-item-tech');
+const alphabetList = document.querySelector('.alphabet-list');
+const alphabetListItems = document.querySelector('.alphabet-list-items');
 const gamePage = document.querySelector('.game-page');
 const newGame = document.querySelector('.new-game');
 const textPanel = document.querySelector('.text-panel');
@@ -60,7 +66,7 @@ alphabet.forEach((item) => {
   li = document.createElement("li");
   li.id = item;
   li.innerText = item;
-  listItems.appendChild(li);
+  alphabetListItems.appendChild(li);
 });
 
 
@@ -70,14 +76,13 @@ alphabet.forEach((item) => {
   item.addEventListener('click', getCategory);
 });
 
-listItems.addEventListener('click', getLetter);
+alphabetListItems.addEventListener('click', getLetter);
 newGame.addEventListener('click', clearAll);
 
 
 /* Play the game */
 function getCategory(id) {
   categories.style.display = 'none';
-  alphabetList.style.display = 'flex';
   gamePage.style.display = 'flex';
  
   id = this.id;
@@ -112,7 +117,6 @@ function getCategory(id) {
       theme = 'Home Appliances';
       break;
   }
-
   
   randomWord = category[Math.floor(Math.random() * category.length)].toLowerCase();
   let getRandomWordLength = randomWord.length;

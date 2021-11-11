@@ -1,5 +1,5 @@
 :root {
-  --headings-color: navy;
+  --main-text-color: navy;
   --bkg-color-opacity: rgba(255, 255, 255, 0.9);
 }
 
@@ -8,7 +8,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Castoro', serif;
-  overflow: hidden;
 }
 
 .container {
@@ -16,7 +15,7 @@
   align-items: center;
   flex-direction: column;
   width: 100vw;
-  height: 100vh; /* Use vh as a fallback for browsers that do not support Custom Properties */
+  height: 100vh;  /* Use vh as a fallback for browsers that do not support Custom Properties */
   height: calc(var(--vh, 1vh) * 100);
 }
 
@@ -41,7 +40,7 @@
   width: 250px;
   height: 75px;
   padding: 10px;
-  margin: 10px 10px 30px 10px;
+  margin: 10px 10px 30px;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -51,29 +50,20 @@
 
 .play-button a {
   text-decoration: none;
-  color: var(--headings-color);
-}
-
-.alphabet-list {
-  display: none;
+  color: var(--main-text-color);
 }
 
 .categories {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 95%;
-  height: 95%;
-  margin: 10px;
-  padding: 10px;
-  background-color: var(--bkg-color-opacity);
-  border-radius: 5px;
 }
 
 .game-page {
   display: none;
   justify-content: space-evenly;
+}
+
+.categories, .game-page {
   align-items: center;
   flex-direction: column;
   width: 95%;
@@ -85,7 +75,7 @@
 }
 
 .instructions-text {
-  color: var(--headings-color);
+  color: var(--main-text-color);
   margin-bottom: 15px;
 }
 
@@ -118,14 +108,14 @@
   font-size: 22px;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--headings-color);
+  color: var(--main-text-color);
 }
 
 .word-to-guess {
   letter-spacing: 5px;
 }
 
-.list-items {
+.alphabet-list-items {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -133,7 +123,7 @@
   flex-direction: row; 
 }
 
-.list-items li {
+.alphabet-list-items li {
   display: flex;
   justify-content: center;
   align-items: center;
