@@ -53,8 +53,8 @@ const tech = ['tv', 'dishwasher', 'fridge', 'oven', 'stove', 'dryer', 'computer'
 let category;
 let li;
 let theme;
-let spaceInRandomWord;
-let replaceRandomWord;
+let spaceIndices;
+let replaceLetters;
 let splitRandomWord;
 
 
@@ -129,26 +129,23 @@ function getRandomWord() {
 }
 
 
-function checkForSpacesInRandomWord() {
-  spaceInRandomWord = randomWord.indexOf(' ');
-  console.log(spaceInRandomWord);
+function detectSpaces() {
+  spaceIndices = randomWord.indexOf(' ');
+  console.log(spaceIndices);
 };
 
 
-function replaceRW() {
-    // if (i !== spaceInRandomWord) {
-      replaceRandomWord = randomWord.replaceAll(/[a-zA-Z]/g, "_");
-      console.log(replaceRandomWord);
-    // }
-  
-    wordToGuess.innerHTML = `
-      <p class="word-to-guess">
-        ${replaceRandomWord}
-      </p>
-    `
+function hideLetters() {
+  replaceLetters = randomWord.replaceAll(/[a-zA-Z]/g, "_");
+  console.log(replaceLetters);
 
-    splitRW();
+  wordToGuess.innerHTML = `
+    <p class="word-to-guess">
+      ${replaceLetters}
+    </p>
+  `
 
+  splitRW();
 };
 
 
@@ -183,6 +180,6 @@ function playTheGame() {
   createAlphabet();
   getRandomWord();
   // displayRandomWord();
-  // checkForSpacesInRandomWord();
-  replaceRW();
+  detectSpaces();
+  hideLetters();
 };
