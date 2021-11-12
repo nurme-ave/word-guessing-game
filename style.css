@@ -111,9 +111,9 @@
   color: var(--main-text-color);
 }
 
-/* .word-to-guess {
+.word-to-guess {
   letter-spacing: 5px;
-} */
+}
 
 .alphabet-list-items {
   display: flex;

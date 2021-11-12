@@ -36,7 +36,8 @@ const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
 // polar bear, tv set, washing machine, mobile phone, refrigerator, coffee machine, vacuum cleaner
-const animals = ['polar bear', 'fox', 'white polar white bear'];
+const animals = ['polar bear', 'fox', 'wolf'];
+// const animals = ['polar bear', 'fox', 'white polar white bear'];
 // const animals = [
 // 'bear', 'rabbit', 'fox', 'wolf', 'elephant', 'panda', 'tiger', 'lion', 'crocodile', 'hedgehog', 
 // 'cat', 'dog', 'hamster', 'mouse', 'dinosaur', 'zebra', 'squirrel', 'moose', 'deer', 'goat', 'lynx', 'pig'];
@@ -52,6 +53,9 @@ const tech = ['tv', 'dishwasher', 'fridge', 'oven', 'stove', 'dryer', 'computer'
 let category;
 let li;
 let theme;
+let spaceInRandomWord;
+let replaceRandomWord;
+let splitRandomWord;
 
 
 /* Event listeners */
@@ -63,7 +67,7 @@ let theme;
 
 function createAlphabet() {
   alphabet.forEach((item) => {
-    li = document.createElement("li");
+    li = document.createElement('li');
     li.id = item;
     li.innerText = item;
     alphabetListItems.appendChild(li);
@@ -120,19 +124,55 @@ function getCategory(id) {
 /* Get the random word from the selected category */
 function getRandomWord() {
   randomWord = category[Math.floor(Math.random() * category.length)].toLowerCase();
-
-  wordToGuess.innerHTML = `
-    <p class="word-to-guess">
-      ${randomWord}
-    </p>
-  `;
-
+  console.log(randomWord);
   return randomWord;
 }
 
 
-// function displayRandomWord() {
+function checkForSpacesInRandomWord() {
+  spaceInRandomWord = randomWord.indexOf(' ');
+  console.log(spaceInRandomWord);
+};
 
+
+function replaceRW() {
+    // if (i !== spaceInRandomWord) {
+      replaceRandomWord = randomWord.replaceAll(/[a-zA-Z]/g, "_");
+      console.log(replaceRandomWord);
+    // }
+  
+    wordToGuess.innerHTML = `
+      <p class="word-to-guess">
+        ${replaceRandomWord}
+      </p>
+    `
+
+    splitRW();
+
+};
+
+
+function splitRW() {
+  splitRandomWord = randomWord.split('').sort();
+  console.log(splitRandomWord);
+}
+
+
+
+
+
+// function displayRandomWord() {
+//   let getRandomWordLength = randomWord.length;
+//   replaceRandomWord = '_'.repeat(getRandomWordLength);
+//   splitReplaceRandomWord = replaceRandomWord.split("");
+
+//   wordToGuess.innerHTML = `
+//     <p class="word-to-guess">
+//       ${replaceRandomWord}
+//     </p>
+//   `;
+
+//   console.log(splitReplaceRandomWord);
 // }
 
 
@@ -142,4 +182,7 @@ function playTheGame() {
   gamePage.style.display = 'flex';
   createAlphabet();
   getRandomWord();
+  // displayRandomWord();
+  // checkForSpacesInRandomWord();
+  replaceRW();
 };
