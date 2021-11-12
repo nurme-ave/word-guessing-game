@@ -29,6 +29,7 @@ const gamePage = document.querySelector('.game-page');
 const alphabetList = document.querySelector('.alphabet-list');
 const alphabetListItems = document.querySelector('.alphabet-list-items');
 const currentCategory = document.querySelector('.current-category');
+const wordToGuess = document.querySelector('.word-to-guess');
 
 const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
@@ -70,7 +71,7 @@ function createAlphabet() {
 };
 
 
-/* Get category ID */
+/* Get category ID and display it to the user */
 function getCategory(id) {
   id = this.id;
   console.log(id);
@@ -116,12 +117,26 @@ function getCategory(id) {
 };
 
 
+/* Get the random word from the selected category */
 function getRandomWord() {
   randomWord = category[Math.floor(Math.random() * category.length)].toLowerCase();
-  console.log(randomWord);
+
+  wordToGuess.innerHTML = `
+    <p class="word-to-guess">
+      ${randomWord}
+    </p>
+  `;
+
+  return randomWord;
 }
 
 
+// function displayRandomWord() {
+
+// }
+
+
+/* Play the game */
 function playTheGame() {
   categories.style.display = 'none';
   gamePage.style.display = 'flex';
