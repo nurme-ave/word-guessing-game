@@ -38,32 +38,28 @@ const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
-// polar bear, tv set, washing machine, mobile phone, refrigerator, coffee machine, vacuum cleaner
-const animals = ['white elephant white polar bear'];
-// const animals = ['polar bear', 'fox', 'white polar white bear'];
-// const animals = [
-// 'bear', 'rabbit', 'fox', 'wolf', 'elephant', 'panda', 'tiger', 'lion', 'crocodile', 'hedgehog', 
-// 'cat', 'dog', 'hamster', 'mouse', 'dinosaur', 'zebra', 'squirrel', 'moose', 'deer', 'goat', 'lynx', 'pig'];
+const animals = ['bear', 'rabbit', 'fox', 'wolf', 'elephant', 'panda', 'tiger', 'lion', 'crocodile', 'hedgehog', 'cat', 
+'dog', 'hamster', 'mouse', 'dinosaur', 'zebra', 'squirrel', 'moose', 'deer', 'goat', 'lynx', 'pig', 'polar bear'];
 const fruits = ['orange', 'pear', 'apple', 'tangerine', 'mango', 'lemon', 'plum', 'watermelon', 
 'melon', 'grapefruit', 'aprikot', 'nectarine', 'peach'];
 const colors = ['red', 'blue', 'green', 'yellow', 'white', 'black', 'orange', 'brown', 'pink', 'gray'];
 const birds = ['sparrow', 'swallow', 'cuckoo', 'pigeon', 'crow', 'swan', 'duck', 'eagle', 'goose', 'stork', 'flamingo', 'woodpecker'];
-const countries = ['Estonia', 'America', 'Denmark', 'Finland', 'England', 'Sweden', 'Poland', 'Netherlands', 'Portugal', 'Norway', 
-'Austria', 'Latvia', 'Lithuania', 'Belgium'];
+const countries = ['Estonia', 'United States Of America', 'Denmark', 'Finland', 'England', 'Sweden', 'Poland', 'Netherlands', 'Portugal', 
+'Norway', 'Austria', 'Latvia', 'Lithuania', 'Belgium', 'United Kingdom'];
 const trees = ['maple', 'spruce', 'birch', 'pine', 'alder', 'rowan', 'lilac'];
-const tech = ['tv', 'dishwasher', 'fridge', 'oven', 'stove', 'dryer', 'computer', 'printer', 'iron', 'toaster'];
+const tech = ['dishwasher', 'fridge', 'oven', 'stove', 'dryer', 'computer', 'printer', 'iron', 'toaster', 'tv set',
+'washing machine', 'mobile phone', 'refrigerator', 'coffee machine', 'vacuum cleaner'];
 
-let li;
 let category;
 let theme;
+let li;
 let randomWord;
-let replaceLetters;
-let splitRandomWord;
-let ind;
+let wordLength;
+let spaces;
+let replacedLetters;
+let splittedWord;
 let letter;
 let rightGuesses = [];
-let indexes = [];
-let remainingLetters;
 
 
 // Event listeners
@@ -73,13 +69,12 @@ let remainingLetters;
 });
 
 alphabetListItems.addEventListener('click', playTheGame);
-newGame.addEventListener('click', clearAll);
+newGame.addEventListener('click', startNewGame);
 
 
 // Get category ID and display it to the user
 function getCategory() {
   id = this.id;
-  console.log(id);
 
   switch (id) {
     case 'animals-category':
@@ -128,8 +123,8 @@ function renderGame() {
   gamePage.style.display = 'flex';
   createAlphabet();
   getRandomWord();
-  countSpaces();
-  hideLetters();
+  getWordLength(randomWord);
+  replaceLetters(randomWord);
 };
 
 
@@ -147,42 +142,41 @@ function createAlphabet() {
 // Get the random word from the selected category
 function getRandomWord() {
   randomWord = category[Math.floor(Math.random() * category.length)].toLowerCase();
-  remainingLetters = randomWord.length;
-  console.log(randomWord);
-  console.log(remainingLetters);
   return randomWord;
 }
 
-
-// Detect for spaces in the randomly selected word
-function countSpaces() {
-  let spaces = randomWord.match(/ /g).length;
-  console.log(spaces);
-  remainingLetters = remainingLetters - spaces;
-  console.log(remainingLetters);
-  return spaces;
+ 
+/*
+  Detect for spaces in the randomly selected word
+  and get the length of the word without spaces
+*/
+function getWordLength(word) {
+  wordLength = word.length;
+  if (word.indexOf(' ') > 0) {
+    spaces = word.match(/ /g).length;
+    wordLength = wordLength - spaces;
+  }
+  return wordLength;
 };
 
 
-// Hide letters and display the hidden word to the user
-function hideLetters() {
-  replaceLetters = randomWord.replaceAll(/[a-zA-Z]/g, "_");
-  console.log(replaceLetters);
+// Replace letters and display the hidden word to the user
+function replaceLetters(word) {
+  replacedLetters = word.replaceAll(/[a-zA-Z]/g, "_");
 
   wordToGuess.innerHTML = `
     <p class="word-to-guess">
-      ${replaceLetters}
+      ${replacedLetters}
     </p>
   `
-  splitRW(replaceLetters);
+  splitWord(replacedLetters);
 };
 
 
-// Split the random wort to an array
-function splitRW(wordToSplit) {
-  splitRandomWord = wordToSplit.split('');
-  console.log(splitRandomWord);
-  return splitRandomWord;
+// Split the random word into an array
+function splitWord(word) {
+  splittedWord = word.split('');
+  return splittedWord;
 };
 
 
@@ -190,25 +184,25 @@ function splitRW(wordToSplit) {
 function playTheGame(e) {
   if (e.target && e.target.nodeName == "LI") {   // console.log(e.target.nodeName), it will result LI
     letter = e.target.id;
-    console.log(letter);
+
+    const hideLetter = document.getElementById(letter);
+    hideLetter.style.visibility = 'hidden';
   }
   
   if (randomWord.includes(letter)) {
     for(let i = 0; i < randomWord.length; i++) {
       if (randomWord[i] === letter) {
-        splitRandomWord[i] = letter;
+        splittedWord[i] = letter;
         rightGuesses.push(letter);
 
         wordToGuess.innerHTML = `
         <p>
-          ${splitRandomWord.join("")}
+          ${splittedWord.join("")}
         </p>
         `;
-
-        const hideLetter = document.getElementById(letter);
-        hideLetter.style.visibility = 'hidden';
       }
-      if (rightGuesses.length === remainingLetters) {
+
+      if (rightGuesses.length === wordLength) {
         currentCategory.style.display = 'none';
         youWin.style.display = 'flex';
         wordToGuess.innerHTML = `<p class="word-guessed">${randomWord}</p>`;
@@ -220,6 +214,6 @@ function playTheGame(e) {
 
 
 // Clear everything and start a new game
-function clearAll() {
+function startNewGame() {
   location.reload()
 };
