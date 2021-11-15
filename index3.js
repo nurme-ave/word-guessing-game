@@ -30,13 +30,15 @@ const alphabetList = document.querySelector('.alphabet-list');
 const alphabetListItems = document.querySelector('.alphabet-list-items');
 const currentCategory = document.querySelector('.current-category');
 const wordToGuess = document.querySelector('.word-to-guess');
+const youWin = document.querySelector('.you-win');
+const partyEmoticons = document.querySelector('.party-emoticons');
 
 const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
 // polar bear, tv set, washing machine, mobile phone, refrigerator, coffee machine, vacuum cleaner
-const animals = ['polar bear', 'fox', 'wolf'];
+const animals = ['white elephant white polar bear'];
 // const animals = ['polar bear', 'fox', 'white polar white bear'];
 // const animals = [
 // 'bear', 'rabbit', 'fox', 'wolf', 'elephant', 'panda', 'tiger', 'lion', 'crocodile', 'hedgehog', 
@@ -50,33 +52,30 @@ const countries = ['Estonia', 'America', 'Denmark', 'Finland', 'England', 'Swede
 const trees = ['maple', 'spruce', 'birch', 'pine', 'alder', 'rowan', 'lilac'];
 const tech = ['tv', 'dishwasher', 'fridge', 'oven', 'stove', 'dryer', 'computer', 'printer', 'iron', 'toaster'];
 
-let category;
 let li;
+let category;
 let theme;
-let spaceIndices;
+let randomWord;
 let replaceLetters;
 let splitRandomWord;
+let ind;
+let letter;
+let rightGuesses = [];
+let indexes = [];
+let remainingLetters;
 
 
-/* Event listeners */
+// Event listeners
 [pickCategoryAnimals, pickCategoryBirds, pickCategoryColors, pickCategoryFruits, pickCategoryCountries, pickCategoryTrees, pickCategoryTech]
 .forEach(item => {
   item.addEventListener('click', getCategory);
 });
 
-
-function createAlphabet() {
-  alphabet.forEach((item) => {
-    li = document.createElement('li');
-    li.id = item;
-    li.innerText = item;
-    alphabetListItems.appendChild(li);
-  })
-};
+alphabetListItems.addEventListener('click', playTheGame);
 
 
-/* Get category ID and display it to the user */
-function getCategory(id) {
+// Get category ID and display it to the user
+function getCategory() {
   id = this.id;
   console.log(id);
 
@@ -117,24 +116,53 @@ function getCategory(id) {
     </p>
   `;
   
-  playTheGame();
+  renderGame();
 };
 
 
-/* Get the random word from the selected category */
+// Render the game
+function renderGame() {
+  categories.style.display = 'none';
+  gamePage.style.display = 'flex';
+  createAlphabet();
+  getRandomWord();
+  countSpaces();
+  hideLetters();
+};
+
+
+// Create the alphabet
+function createAlphabet() {
+  alphabet.forEach((item) => {
+    li = document.createElement('li');
+    li.id = item;
+    li.innerText = item;
+    alphabetListItems.appendChild(li);
+  })
+};
+
+
+// Get the random word from the selected category
 function getRandomWord() {
   randomWord = category[Math.floor(Math.random() * category.length)].toLowerCase();
+  remainingLetters = randomWord.length;
   console.log(randomWord);
+  console.log(remainingLetters);
   return randomWord;
 }
 
 
-function detectSpaces() {
-  spaceIndices = randomWord.indexOf(' ');
-  console.log(spaceIndices);
+// Detect for spaces in the randomly selected word
+function countSpaces() {
+  let spaces = randomWord.match(/ /g).length;
+  console.log(spaces);
+  remainingLetters = remainingLetters - spaces;
+  console.log(remainingLetters);
+  return spaces;
 };
 
 
+// Hide letters and display the hidden word to the user
 function hideLetters() {
   replaceLetters = randomWord.replaceAll(/[a-zA-Z]/g, "_");
   console.log(replaceLetters);
@@ -144,42 +172,46 @@ function hideLetters() {
       ${replaceLetters}
     </p>
   `
-
-  splitRW();
+  splitRW(replaceLetters);
 };
 
 
-function splitRW() {
-  splitRandomWord = randomWord.split('').sort();
+// Split the random wort to an array
+function splitRW(wordToSplit) {
+  splitRandomWord = wordToSplit.split('');
   console.log(splitRandomWord);
-}
+  return splitRandomWord;
+};
 
 
+// Play the game - guess letters
+function playTheGame(e) {
+  if (e.target && e.target.nodeName == "LI") {   // console.log(e.target.nodeName), it will result LI
+    letter = e.target.id;
+    console.log(letter);
+  }
+  
+  if (randomWord.includes(letter)) {
+    for(let i = 0; i < randomWord.length; i++) {
+      if (randomWord[i] === letter) {
+        splitRandomWord[i] = letter;
+        rightGuesses.push(letter);
 
+        wordToGuess.innerHTML = `
+        <p>
+          ${splitRandomWord.join("")}
+        </p>
+        `;
 
-
-// function displayRandomWord() {
-//   let getRandomWordLength = randomWord.length;
-//   replaceRandomWord = '_'.repeat(getRandomWordLength);
-//   splitReplaceRandomWord = replaceRandomWord.split("");
-
-//   wordToGuess.innerHTML = `
-//     <p class="word-to-guess">
-//       ${replaceRandomWord}
-//     </p>
-//   `;
-
-//   console.log(splitReplaceRandomWord);
-// }
-
-
-/* Play the game */
-function playTheGame() {
-  categories.style.display = 'none';
-  gamePage.style.display = 'flex';
-  createAlphabet();
-  getRandomWord();
-  // displayRandomWord();
-  detectSpaces();
-  hideLetters();
+        const hideLetter = document.getElementById(letter);
+        hideLetter.style.visibility = 'hidden';
+      }
+      if (rightGuesses.length === remainingLetters) {
+        currentCategory.style.display = 'none';
+        youWin.style.display = 'flex';
+        wordToGuess.innerHTML = `<p class="word-guessed">${randomWord}</p>`;
+        partyEmoticons.style.display = 'flex';
+      }
+    }
+  }
 };
