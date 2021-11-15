@@ -32,6 +32,7 @@ const currentCategory = document.querySelector('.current-category');
 const wordToGuess = document.querySelector('.word-to-guess');
 const youWin = document.querySelector('.you-win');
 const partyEmoticons = document.querySelector('.party-emoticons');
+const newGame = document.querySelector('.new-game');
 
 const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
@@ -72,6 +73,7 @@ let remainingLetters;
 });
 
 alphabetListItems.addEventListener('click', playTheGame);
+newGame.addEventListener('click', clearAll);
 
 
 // Get category ID and display it to the user
@@ -214,4 +216,10 @@ function playTheGame(e) {
       }
     }
   }
+};
+
+
+// Clear everything and start a new game
+function clearAll() {
+  location.reload()
 };
