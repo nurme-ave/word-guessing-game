@@ -215,9 +215,11 @@
     background-color: #808080;
     color: #fff;
   }
+}
 
-  /* .alphabet-list-items li {
+@media screen and (min-width: 1400px) {
+  .alphabet-list-items li {
     width: 75px;
     height: 75px;
-  } */
+  }
 }
