@@ -106,7 +106,7 @@ function getCategory() {
       break;
     case 'tech-category':
       category = tech;
-      theme = 'Home Appliances';
+      theme = 'Appliances';
       break;
   }
 
@@ -209,7 +209,7 @@ function playTheGame(e) {
         currentCategory.style.display = 'none';
         youWin.style.display = 'flex';
         wordToGuess.innerHTML = `<p class="word-guessed">${randomWord}</p>`;
-        partyEmoticons.style.display = 'flex';
+        partyEmoticons.style.visibility = 'visible';
       }
     }
   }
