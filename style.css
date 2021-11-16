@@ -171,6 +171,11 @@
 
   .categories, .game-page {
     width: 75%;
+    height: auto;
+  }
+
+  .instructions-text, .text-panel, .alphabet-list {
+    margin: 15px 0px;
   }
 
   .alphabet-list {
@@ -179,6 +184,10 @@
 
   .new-game-btn, .text-panel, .instructions-text {
     font-size: 22px;
+  }
+
+  .new-game-btn {
+    margin: 15px;
   }
 }
 
@@ -202,13 +211,15 @@
 }
 
 @media screen and (min-width: 1200px) {
-  .alphabet-list-items li {
-    width: 75px;
-    height: 75px;
-  }
-
   .alphabet-list-items li:hover {
     background-color: #808080;
     color: #fff;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .alphabet-list-items li {
+    width: 75px;
+    height: 75px;
   }
 }
