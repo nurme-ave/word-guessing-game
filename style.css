@@ -15,9 +15,6 @@
   align-items: center;
   flex-direction: column;
   width: 100vw;
-
-  /* Put the height in media queries */
-  height: 100vh;  /* Use vh as a fallback for browsers that do not support Custom Properties */
   height: calc(var(--vh, 1vh) * 100);
 }
 
@@ -156,4 +153,12 @@
 .party-emoticons {
   display: none;
   margin-top: 5px;
+}
+
+
+/* MEDIA QUERIES */
+@media screen and (min-width: 768px) {
+  .container {
+    height: 100vh;
+  }
 }
