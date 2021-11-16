@@ -208,11 +208,6 @@
   .new-game-btn, .text-panel, .instructions-text {
     font-size: 24px;
   }
-
-  .alphabet-list-items li {
-    width: 75px;
-    height: 75px;
-  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -220,8 +215,9 @@
     background-color: #808080;
     color: #fff;
   }
-}
 
-@media screen and (min-width: 1400px) {
-
+  .alphabet-list-items li {
+    width: 75px;
+    height: 75px;
+  }
 }
