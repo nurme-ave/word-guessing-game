@@ -111,10 +111,6 @@
   color: var(--main-text-color);
 }
 
-.text-panel > p {
-  padding: 3px;
-}
-
 .word-to-guess {
   letter-spacing: 10px;
 }
@@ -165,6 +161,12 @@
 @media screen and (min-width: 320px) {
   .container {
     height: calc(var(--vh, 1vh) * 100);
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .text-panel > p {
+    padding: 3px;
   }
 }
 
