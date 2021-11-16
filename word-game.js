@@ -206,8 +206,7 @@ function playTheGame(e) {
       }
 
       if (rightGuesses.length === wordLength) {
-        currentCategory.style.display = 'none';
-        youWin.style.display = 'flex';
+        youWin.style.visibility = 'visible'
         wordToGuess.innerHTML = `<p class="word-guessed">${randomWord}</p>`;
         partyEmoticons.style.visibility = 'visible';
       }

@@ -142,7 +142,7 @@
 }
 
 .you-win {
-  display: none;
+  visibility: hidden;
   letter-spacing: 0;
 }
 
