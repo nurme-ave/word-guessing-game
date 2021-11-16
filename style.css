@@ -111,6 +111,10 @@
   color: var(--main-text-color);
 }
 
+.text-panel > p {
+  padding: 3px;
+}
+
 .word-to-guess {
   letter-spacing: 10px;
 }
