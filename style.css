@@ -65,7 +65,8 @@
   align-items: center;
   flex-direction: column;
   width: 95%;
-  height: 95%;
+  height: auto;
+  /* height: 95%; */
   margin: 10px;
   padding: 10px;
   background-color: var(--bkg-color-opacity);
@@ -153,7 +154,6 @@
 
 .party-emoticons {
   visibility: hidden;
-  /* margin-top: 5px; */
 }
 
 
