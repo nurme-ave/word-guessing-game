@@ -180,6 +180,14 @@
     height: auto;
   }
 
+  .pick-category li:last-child {
+    margin-bottom: 25px;
+  }
+
+  .new-game {
+    margin-bottom: 15px;
+  }
+
   .instructions-text, .text-panel, .alphabet-list {
     margin: 15px 0px;
   }
