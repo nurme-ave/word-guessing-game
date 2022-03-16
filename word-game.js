@@ -55,7 +55,6 @@ const tech = ['dishwasher', 'fridge', 'oven', 'stove', 'dryer', 'computer', 'pri
 
 let category;
 let theme;
-let li;
 let randomWord;
 let wordLength;
 let spaces;
@@ -110,12 +109,7 @@ function getCategory() {
       break;
   }
 
-  currentCategory.innerHTML = `
-    <p class="current-category">
-      Category: ${theme}
-    </p>
-  `;
-  
+  currentCategory.textContent += theme;
   renderGame();
 };
 
@@ -134,7 +128,7 @@ function renderGame() {
 // Create the alphabet
 function createAlphabet() {
   alphabet.forEach((item) => {
-    li = document.createElement('li');
+    let li = document.createElement('li');
     li.id = item;
     li.innerText = item;
     alphabetListItems.appendChild(li);
@@ -166,12 +160,7 @@ function getWordLength(word) {
 // Replace letters and display the hidden word to the user
 function replaceLetters(word) {
   replacedLetters = word.replaceAll(/[a-zA-Z]/g, "_");
-
-  wordToGuess.innerHTML = `
-    <p class="word-to-guess">
-      ${replacedLetters}
-    </p>
-  `
+  wordToGuess.textContent = replacedLetters;
   splitWord(replacedLetters);
 };
 
@@ -197,12 +186,7 @@ function playTheGame(e) {
       if (randomWord[i] === letter) {
         splittedWord[i] = letter;
         rightGuesses.push(letter);
-
-        wordToGuess.innerHTML = `
-        <p>
-          ${splittedWord.join("")}
-        </p>
-        `;
+        wordToGuess.textContent = splittedWord.join("");
       }
 
       if (rightGuesses.length === wordLength) {

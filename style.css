@@ -175,6 +175,10 @@
     height: 100vh;
   }
 
+  .home-container {
+    justify-content: center;
+  }
+
   .categories, .game-page {
     width: 75%;
     height: auto;
