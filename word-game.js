@@ -130,7 +130,7 @@ function createAlphabet() {
   alphabet.forEach((item) => {
     let li = document.createElement('li');
     li.id = item;
-    li.innerText = item;
+    li.textContent = item;
     alphabetListItems.appendChild(li);
   })
 };
