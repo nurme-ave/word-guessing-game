@@ -25,7 +25,7 @@ The page has been built with mobile-first design in mind and is fully responsive
 
 ### Screenshot
 
-![Screenshot of my solution](/images/word-guessing-game_1920.png)
+![Screenshot of my solution](/images/wordgame.png)
 
 ### Links
 
