@@ -23,6 +23,8 @@ With this project I learned how to build the game logic through different functi
 
 The page has been built with mobile-first design in mind and is fully responsive.
 
+UPDATE: This code was refactored on April 15th, 2022.
+
 ### Screenshot
 
 ![Screenshot of my solution](/images/wordgame.png)
