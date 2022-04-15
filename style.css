@@ -79,11 +79,11 @@
   font-size: 20px;
 }
 
-.pick-category li, .new-game-btn {
+.pick-category-button, .new-game-btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: auto;
+  width: 125px;
   height: 50px;
   padding: 10px;
   margin: 10px;
@@ -91,12 +91,14 @@
   color: darkblue;
   border: 1px solid darkblue;
   border-radius: 5px;
+  font-size: 16px;
   font-weight: 700;
   text-transform: uppercase;
   cursor: pointer;
 }
 
 .new-game-btn {
+  width: 175px;
   font-size: 20px;
 }
 
@@ -184,7 +186,7 @@
     height: auto;
   }
 
-  .pick-category li:last-child {
+  .pick-category-button:last-child {
     margin-bottom: 25px;
   }
 
@@ -212,6 +214,7 @@
 @media screen and (min-width: 768px) {
   .categories, .game-page {
     width: 50%;
+    padding: 30px;
   }
 }
 
