@@ -70,7 +70,7 @@ function initializeGame(catList) {
 }
 
 
-// Create the alphabet
+// Display the alphabet
 function createAlphabet() {
   return alphabet.map(listItem => alphabetListItems.innerHTML += `<li id="${listItem}">${listItem}</li>`)
 }
