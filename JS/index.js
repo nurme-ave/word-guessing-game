@@ -31,6 +31,13 @@ let letter;
 const rightGuesses = [];
 
 
+// Enter the game
+document.getElementById('intro').addEventListener('click', () => {
+  document.querySelector('.play-button').style.display = 'none';
+  document.querySelector('.categories').style.display = 'flex';
+})
+
+
 // Create the alphabet from the ASCII code
 const alphabet = String.fromCharCode(...Array(91).keys()).slice(65).split('');
 

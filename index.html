@@ -8,14 +8,36 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Castoro&display=swap" rel="stylesheet">
-  <title>Home</title>
+  <title>Word Guessing Game</title>
 </head>
 <body>
 
-  <div class="container home-container background-image">
-      <h1 class="play-button"><a href="word-game.html">Let's play !</a></h1>
-  </div>
+  <main class="container game-container background-image">
 
-  <script src="utils/index.js"></script>
+    <h1 id="intro" class="play-button">Let's play !</h1>
+
+    <div class="categories">
+      <h2 class="instructions-text">Please pick a category:</h2>
+      <div class="pick-category"></div>
+    </div>
+    
+    <div class="game-page">
+      <div class="text-panel">
+        <p class="current-category">Category: </p>
+        <p class="you-win">Correct!</p>
+        <p class="word-to-guess"></p>
+        <p class="party-emoticons">🥳🎉😉</p>
+      </div>
+      <div class="alphabet-list">
+        <ul class="alphabet-list-items"></ul>
+      </div>
+      <div class="new-game">
+        <button class="new-game-btn">New Game</button>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="JS/index.js" type="module"></script>
 </body>
 </html>
