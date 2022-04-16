@@ -195,7 +195,7 @@
 
 @media screen and (min-width: 768px) {
   .categories, .game-page {
-    width: 50%;
+    width: 75%;
     padding: 30px;
   }
 }
@@ -219,6 +219,10 @@
 }
 
 @media screen and (min-width: 1200px) {
+  .categories, .game-page {
+    width: 65%;
+  }
+
   .alphabet-list-items li:hover {
     background-color: #808080;
     color: #fff;
@@ -226,6 +230,10 @@
 }
 
 @media screen and (min-width: 1400px) {
+  .categories, .game-page {
+    width: 850px;
+  }
+
   .alphabet-list-items li {
     width: 75px;
     height: 75px;
