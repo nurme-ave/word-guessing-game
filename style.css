@@ -10,23 +10,12 @@
   font-family: 'Castoro', serif;
 }
 
-
 .container {
   display: flex;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100vw;
-}
-
-.home-container {
-  justify-content: flex-end;
-}
-
-.game-container {
-  justify-content: center;
-}
-
-.background-image {
   background-image: url('images/sun-smiling-house.png');
   background-size: cover;
 }
@@ -172,10 +161,6 @@
 @media screen and (min-width: 576px) {
   .container {
     height: 100vh;
-  }
-
-  .home-container {
-    justify-content: center;
   }
 
   .categories, .game-page {
