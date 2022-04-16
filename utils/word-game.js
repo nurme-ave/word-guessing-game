@@ -43,7 +43,7 @@ alphabetListItems.addEventListener('click', playTheGame);
 const pickCategoryHtml = categories.map((category) => {
   return `<button id="${category.id}" class="pick-category-button">${category.theme}</button>`;
 });
-pickCategory.insertAdjacentHTML('beforeend', pickCategoryHtml.join(''));
+pickCategory.insertAdjacentHTML('afterbegin', pickCategoryHtml.join(''));
 
 
 // Display the picked category
