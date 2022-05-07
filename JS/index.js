@@ -151,9 +151,3 @@ function winnerTakesItAll() {
   wordToGuess.innerHTML = `<p class="word-guessed">${randomWord}</p>`;
   document.querySelector('.party-emoticons').style.visibility = 'visible';
 }
-
-
-// Clear everything and start a new game
-document.querySelector('.new-game').addEventListener('click', () => {
-  location.reload();
-});

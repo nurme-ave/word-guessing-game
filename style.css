@@ -86,6 +86,7 @@
 .new-game-btn {
   width: 175px;
   font-size: 20px;
+  text-decoration: none;
 }
 
 .text-panel {
