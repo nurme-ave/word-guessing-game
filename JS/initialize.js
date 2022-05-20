@@ -1,6 +1,6 @@
 import { alphabetListItems } from './index.js';
 
-const wordToGuess = document.querySelector('.word-to-guess');
+const wordToGuess = document.getElementById('word-to-guess');
 
 let randomWord;
 let wordLength;

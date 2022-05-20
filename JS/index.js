@@ -22,8 +22,8 @@ window.addEventListener('resize', () => {
 import categories from './categories.js';
 import { initializeGame } from './initialize.js';
 
-const pickCategory = document.querySelector('.pick-category');
-const alphabetListItems = document.querySelector('.alphabet-list-items');
+const pickCategory = document.getElementById('pick-category');
+const alphabetListItems = document.getElementById('alphabet-list-items');
 
 // Enter the game
 document.getElementById('intro').addEventListener('click', () => {
@@ -43,7 +43,7 @@ pickCategory.addEventListener('click', (e) => {
   const target = e.target;
   if (target.tagName === 'BUTTON') {
     const index = categories.findIndex((category) => category.id === target.id);
-    document.querySelector('.current-category').textContent += categories[index].theme;
+    document.getElementById('current-category').textContent += categories[index].theme;
     
     const categoryList = categories[index].list;
     initializeGame(categoryList);
