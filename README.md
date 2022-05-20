@@ -26,7 +26,7 @@ The page has been built with mobile-first design in mind and is fully responsive
 UPDATE: This code was refactored on April 15th, 2022.
 
 Changes made:
-- split the main JS file into two files where one holds only data as objects & utilized import/export
+- split the main JavaSript file into smaller JS files
 - generated the alphabet with String.fromCharCode()
 - displayed the letters & created categories dynamically with map()
 - utilized Event Delegation to listen for events on multiple elements
