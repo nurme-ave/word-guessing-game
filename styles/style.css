@@ -16,7 +16,7 @@
   align-items: center;
   flex-direction: column;
   width: 100vw;
-  background-image: url('images/sun-smiling-house.png');
+  background-image: url('../images/sun-smiling-house.png');
   background-size: cover;
 }
 
